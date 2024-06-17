@@ -1,0 +1,139 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <ng-container *ngIf="chooseMenu === 'MENU'; else filter" >
+            <h5>Home</h5>
+            <mat-list>
+                <mat-list-item>
+                    <a routerLink="/">Home</a>
+                </mat-list-item>
+                <mat-list-item>
+                    <a routerLink="/">Shop</a>
+                </mat-list-item>
+            </mat-list>
+            <h5>Category</h5>
+            <mat-list>
+                <mat-list-item>
+                    <a routerLink="/">Category1</a>
+                </mat-list-item>
+                <mat-list-item>
+                    <a routerLink="/">Category2</a>
+                </mat-list-item>
+            </mat-list>
+        </ng-container>
+
+    </mat-drawer>
+    <mat-drawer-content class="example-sidenav-content">
+        <div class="example-sidenav-content">
+            <div class="header-promotion">
+                <div class="header-promotion-content">
+                    <p class="header-promotion-item">Pengiriman Tepat Waktu</p>
+                    <p class="header-promotion-item">Layanan Responsif</p>
+                    <p class="header-promotion-item">100% Original</p>
+                    <p class="header-promotion-item">Trusted</p>
+                </div>
+            </div>
+            <header>
+                <div class="header__inner">
+                    <div class="icon-menu" (click)="handleChooseSideBar(drawer,'MENU')">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="logo">
+                        <img src="Logo.png" alt="logo">
+                    </div>
+                    <div class="mega-icon">
+                        <div class="item-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="item-icon">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="item-icon">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="item-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="header__main" *ngIf="isShowFilter">
+                    <div class="header__main__breadcrumb">
+                        <p>Home <span> -> </span><span>Shop</span></p>
+                    </div>
+                    <div class="header__main__search-bar">
+                        <form class="search__container" >
+                            <input class="search__input" type="text" placeholder="Search" [(ngModel)]="searchNameProduct" name="search">
+                            <button type="submit" class="search__button" (click)="handleSubmit()" >SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="header__main__option-product">
+                        <div class="header__main_item_filter">
+                            <button type="button" (click)="handleChooseSideBar(drawer,'FILTER')"><i
+                                    class="fa-solid fa-filter"></i> <span>Filter</span></button>
+                        </div>
+                        <div class="header__main_item_view">
+                            <button type="button" aria-label="view-3"><i class="fa-solid fa-table-cells"></i></button>
+                            <button type="button" aria-label="view-2"><i class="fa-solid fa-border-all"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="isShowBanner">
+                    <div [ngTemplateOutlet]="showBanner"></div>
+                </ng-container>
+
+
+                <ng-template #showBanner>
+                    <div class="banner_promotion">
+                        <div class="banner_promotion_sologan">
+                            <h3 class="heading-sologan">Yuk, Belanja di Asimov</h3>
+                            <p class="pharagraph-sologan">Cek Produk dari beragam kategori</p>
+                            <p class="link-product-sologan"><a routerLink="/">Cek Sekarang</a></p>
+                        </div>
+                        <div class="banner_promotion__thumbnail">
+                            <div class="">
+                                <img src="banner1.png" alt="banner1">
+                                <img src="banner2.png" alt="banner2">
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <router-outlet></router-outlet>
+            </main>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<ng-template #filter>
+    <div class="form__filter">
+        <div class="filter__title">
+            <h6>FILTER</h6>
+        </div>
+        <form [formGroup]="filterForm">
+            <div class="form-group">
+                <div class="title-control">
+                    <span>Sort:</span>
+                </div>
+                <mat-form-field>
+                    <mat-label>Sort</mat-label>
+                    <mat-select>
+                        <mat-option value="option">Option</mat-option>
+                        <mat-option value="option">ASC</mat-option>
+                        <mat-option value="option">DSC</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <div class="title-control">
+                    <span>Price:</span>
+                </div>
+                <mat-slider min="200" max="500">
+                    <input value="300" matSliderStartThumb aria-label="213">
+                    <input value="400" matSliderEndThumb aria-label="213">
+                </mat-slider>
+            </div>
+            <button type="button" class="filter__button" mat-raised-button>Apply Filter</button>
+        </form>
+    </div>
+</ng-template>

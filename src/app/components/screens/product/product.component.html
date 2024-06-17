@@ -1,0 +1,22 @@
+<div class="product-list">
+    <div class="product-content">
+        <ng-container *ngFor="let item of productList">
+            <a routerLink="">
+                <app-card [isShowContent]="true">
+                    <ng-container class="productName">
+                        <div class="product__info">
+                            <div class="produuct_info_common">
+                                <p class="product__info__name">{{item.productName}}</p>
+                                <div class="product__info__heart"><i class="fa-regular fa-heart"></i></div>
+                            </div>
+                            <div class="product__info__detail">
+                                <p class="product__info__reaction">🌟 4.5</p>
+                                <p class="product__info__price">{{item.price}}&nbsp; $</p>
+                            </div>
+                        </div>
+                    </ng-container>
+                </app-card>
+                </a>
+        </ng-container>
+    </div>
+</div>

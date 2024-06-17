@@ -1,0 +1,14 @@
+mat-card {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+mat-card:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-content p {
+    color: #000;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <img mat-card-image src="categoryEmpty.png" alt="Category">
+    <mat-card-content *ngIf="!isShowContent">
+        <ng-container [ngTemplateOutlet]="name0">
+        </ng-container>
+    </mat-card-content>
+    <mat-card-footer *ngIf="isShowContent">
+        <ng-container [ngTemplateOutlet]="name">
+        </ng-container>
+    </mat-card-footer>
+</mat-card>
+<ng-template #name>
+    <ng-content select=".productName"></ng-content>
+</ng-template>
+<ng-template #name0>
+    <ng-content select=".categoryName"></ng-content>
+</ng-template>

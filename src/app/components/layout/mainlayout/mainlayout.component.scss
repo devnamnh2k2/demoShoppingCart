@@ -1,0 +1,222 @@
+mat-drawer{
+  padding: 3em 2em;
+  min-width: 30em;
+}
+mat-drawer h5{
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+mat-drawer-content{
+  background-color: #fff;
+}
+
+.form__filter{
+  padding: 1em;
+}
+
+.filter__title h6{
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form-group .title-control{
+  padding: 1em 0 0.5em 0;
+}
+
+.form-group .title-control span{
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+mat-form-field, mat-slider{
+  margin: 2em 0;
+  width: 100%;
+}
+form .filter__button{
+  width: 100%;
+  padding: 2em 3em;
+  border-radius: 1em;
+  border: 1px solid;
+
+}
+.header-promotion {
+    color: #333;
+    // box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+}
+.header-promotion-content {
+    display: flex;
+    justify-content: space-around;  
+    align-items: center;
+    gap: 15em;
+    padding: 1em;
+}
+
+.header-promotion-content .header-promotion-item{
+    font-weight: 500;
+    margin-bottom: 0;
+}
+header {
+    color: #000;
+    padding: 2em;
+}
+.header__inner, .mega-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo img{
+    height: 2em;
+    max-width: 100%;
+}
+
+.icon-menu, .mega-icon {
+    font-size: 1.4em;
+}
+
+.mega-icon{
+     gap: 1.3em
+}
+
+main {
+    
+}
+
+.header__main{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 1em;
+    padding: 1em;
+    color: #333
+
+
+}
+
+.header__main__breadcrumb, .header__main__option-product{
+    display: flex;
+    align-items: center;
+}
+
+.header__main__breadcrumb{
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.header__main__breadcrumb span {
+     margin: 0 0.5em;
+}
+
+
+
+.search {
+  &__container {
+    position: relative;
+  }
+  
+  &__input {
+      width: 100%;
+      padding: 12px 24px;
+      background-color: transparent;
+      transition: transform 250ms ease-in-out;
+      font-size: 14px;
+      line-height: 18px;
+      
+      color: #575756;
+      background-color: transparent;
+      border-radius: 50px;
+      border: 1px solid #575756;
+      transition: all 250ms ease-in-out;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      
+      &::placeholder {
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+      }
+      
+      &:hover,
+      &:focus {
+          padding: 12px 0;
+          outline: 0;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #575756;
+          border-radius: 0;
+          background-position: 100% center;
+      }
+  }
+  &__button {
+    position: absolute;
+    right: -7%;
+    top: 4%;
+    padding: 1em;
+    border: none;
+    background: white;
+  }
+}
+
+
+  mat-icon {
+    padding: 0 12px
+  }
+
+  .header__main__option-product{
+    justify-content: flex-end;
+    gap: 1em;
+  }
+
+  .header__main__option-product .header__main_item_filter button, .header__main_item_view button {
+    padding: 1em 2em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header__main_item_view button {
+    margin: 0 0.3em;
+  }
+  .header__main__option-product .header__main_item_filter button span{
+    margin: 0 0.4em;
+  }
+
+  .header__main_item_view button{
+    
+
+  }
+
+
+  .banner_promotion{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #030303;
+    border-radius: 2em;
+    color: #fff;
+  }
+
+  .heading-sologan{
+    font-size: 4em;
+    text-transform: capitalize;
+    font-weight: 800;
+  }
+
+  .pharagraph-sologan{
+    font-size: 1.5em;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+  .link-product-sologan{
+    margin: 2em 0;
+
+  }
+.link-product-sologan a {
+    color: #fff;
+    font-size: 1.3em;
+    border: 2px solid #fff;
+    border-radius: 2em;
+    padding: 0.5em 1em
+}
+  

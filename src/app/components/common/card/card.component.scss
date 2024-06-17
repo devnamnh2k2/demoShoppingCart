@@ -1,0 +1,18 @@
+mat-card-content, mat-card-footer {
+    background-color: #fff;
+    color: #000;
+}
+
+mat-card-content p {
+    text-align: center;
+}
+
+.product__info{
+    margin-top: 5em;
+    padding: 1em;
+}
+
+.produuct_info_common, .product__info__detail{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,23 @@
+<div class="category-product">
+    <h3 class="heading-category">Category</h3>
+    <div class="group-category">
+        @if (isLoading) {
+        <!-- Display your loading spinner or skeleton here -->
+        <mat-spinner></mat-spinner>
+        }
+        @else {
+        
+        <!-- Display your data here -->
+        <ng-container *ngFor="let category of listCategory; index as idx">
+            <a routerLink="/shoppingCartDemo/{{category.categoryName}}-{{category.categoryId}}">
+                <app-card [isShowContent]="false">
+                    <p class="categoryName" style="text-align: center;">{{category.categoryName}}</p>
+                </app-card>
+            </a>
+        </ng-container>
+        }
+    </div>
+</div>
+<div>
+    <h3 class="heading-category">Found Product</h3> <span>{{searchProduct.length}}</span>
+</div>
