@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../interfaces/product.interface';
 import { CartService } from '../../../services/cart.services';
+import { CartItem } from '../../../interfaces/cart.interface';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -9,42 +10,35 @@ import { CartService } from '../../../services/cart.services';
 })
 export class CartComponent implements OnInit {
 
-  private count:number = 0;
-  private isOpen:boolean =false;
-  private previewFlag:boolean = false;
-  private inVoiceNo !:number;
+  cartTotal:number = 0;
+   listProductAvaiable: CartItem[] = [];
   constructor(private cartService:CartService) { 
 
   }
 
   ngOnInit() {
-
-    this.cartService.cartUpdates$.subscribe(()=>{
-      this.count= this.cartService.count;
-    });
+    this.getAllPoroduct();
+    // this.cartService.cartUpdates$.subscribe(()=>{
+    //   this.count= this.cartService.count;
+    // });
   }
-  // private openCart():void{
-  //   this.isOpen = true;
-  // }
-  // private closeCart():void{
-  //   this.isOpen = false;
-  //   this.previewFlag = false;
-  // }
-  // private removeProduct(item: Product) :void{
-  //   console.log(this.cartService)
-  //   this.cartService.cartItmes.splice(this.cartService.cartItmes.findIndex(element=>item.productId === element.id),1);
-  //   this.count= this.cartService.count;
-  // }
-  // private chngQuantity():void{
-  //   this.count= this.cartService.count;     
-  // }
-  // private preview() :void{
-  //   this.previewFlag = true;
-  //   this.inVoiceNo = this.getRandomInt(23443, 23432555);
-  // }
- 
-  // private getRandomInt(min, max) {
-  //       return Math.floor(Math.random() * (max - min + 1)) + min;
-  //   }
 
+  getAllPoroduct(){
+    this.cartService.getAllPro_CardByCardId().subscribe({
+      next: (cartItems) => {
+        this.listProductAvaiable = cartItems;
+        // Calculate initial cart total (optional)
+        this.cartTotal = this.calculateCartTotal(cartItems);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.error('Error fetching cart items:', error);
+        // Handle API errors gracefully (optional)
+        // e.g., display an error message to the user
+      }
+    })
+  }
+
+  calculateCartTotal(cartItems: CartItem[]): number {
+    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
 }

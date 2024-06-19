@@ -5,14 +5,14 @@
                 <img src="categoryEmpty.png" alt="plant_peace.png">
             </div>
             <div class="plant-details__info">
-                <h2 class="plant-details__title">Product Name</h2>
-                <span class="plant-details__category">Popular house plant</span>
-                <span class="plant-details__price">$18</span>
+                <h2 class="plant-details__title">{{product?.productName || "Product Name"}}</h2>
+                <span class="plant-details__category">{{product?.categoryId || "Popular house plant"}}</span>
+                <span class="plant-details__price">${{product?.price || "18"}}</span>
                 <p class="plant-details__desc">
-                   Product description
+                   {{product?.description || "Product description"}}
                 </p>
                 <div class="plant-details__buttons">
-                    <button type="button" class="plant-details__button">Add to cart</button>
+                    <button type="button" class="plant-details__button" (click)="handleAddToCart()">Add to cart</button>
                 </div>
             </div>
         </div>

@@ -1,55 +1,91 @@
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-8"></div>
-      <div class="col-4"> 
-        <button class="btn" (click)="openCart()" > Cart - {{count}}</button>
-        
-      </div>
-    </div>
-    <div class="modal" [ngClass]="{'show':isOpen}" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header row">
-            <ng-container *ngIf="!previewFlag">
-              <div  class="col-md-4"> <h5 class="modal-title"> Items in Cart</h5></div>
-              <div  class="col-md-2 offset-md-2" ><h5 class="modal-title">Quantity</h5></div>
-            </ng-container>
-             <div *ngIf="previewFlag">
-              <div > <h5 class="modal-title">CheckOut Details</h5></div>
-              <div>
-               <div class="col-md-2 offset-md-2"><h6> Invoice Number</h6></div>
-              <div class="col-md-3 ml-md-auto" ><h6>{{inVoiceNo}}</h6></div>
-              </div>
-            </div>
-            
-            <button type="button" class="close" (click)="closeCart()" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+<!-- ============== SECTION PAGETOP ============== -->
+<section class=" padding-y-sm">
+  <div class="container">
+    <ol class="breadcrumb ondark mb-0">
+      <li class="breadcrumb-item"> <a href="#" class="text-dark">Home</a>  </li>
+      <li class="breadcrumb-item active"> Shopping cart  </li>
+    </ol>
+  </div> <!-- container //  -->
+  </section>
+  <!-- ============== SECTION PAGETOP END// ============== -->
+  
+  <section class="padding-y bg-light">
+  <div class="container">
+  
+  <!-- =================== COMPONENT CART+SUMMARY ====================== -->
+  <div class="row">
+    <div class="col-lg-9">
+  
+      <div class="card">
+      <div class="content-body">
+        <h4 class="card-title mb-4 text-dark">Your shopping cart</h4>
+        <article class="row gy-3 mb-4" *ngFor="let p of listProductAvaiable">
+          <div class="col-lg-5">
+            <figure class="itemside me-lg-5">
+              <div class="aside"><img src="https://cdn.prod.website-files.com/62d84e447b4f9e7263d31e94/6399a4d27711a5ad2c9bf5cd_ben-sweet-2LowviVHZ-E-unsplash-1.jpeg" class="img-sm img-thumbnail" alt="image"></div>
+              <figcaption class="info">
+                <a href="#" class="title text-info">{{p.name}}</a>
+              </figcaption>
+            </figure>
           </div>
-          <div  class="modal-body">  
-            <div *ngIf="count && !previewFlag">    
-              <div  class="row mb-3" *ngFor="let item of cartService.cartItmes" > 
-                <div  class="col-md-4"> {{item.name}} {{item.price  | currency: 'USD': true}}</div>
-                <div  class="col-md-2 offset-md-2" > <input type="number" name="quantity" min="1" max="5" [(ngModel)]="item.qty"  (click)="chngQuantity()" aria-label="123"></div>
-                <div class="col-md-3 ml-md-auto"><button (click)="removeProduct(item)">Delete</button></div>
-              </div>  
-            </div>
-            <div *ngIf="!count && previewFlag" class="row"> 
-              <div  class="col"> no items in the cart</div>
-            </div>  
-            <div *ngIf="previewFlag">  
-              <div  class="row mb-3" *ngFor="let item of cartService.cartItmes" > 
-                  <div  class="col-md-4"> {{item.name}} </div>
-                  <div class="col-md-3 ml-md-auto"> {{item.price  | currency: 'USD': true}} </div>
-              </div> 
+          <div class="col-auto">
+          <button type="button"> + </button>
+          <span class="text-dark">{{1}}</span>
+          <!-- <button type="button"> - </button> -->
+          </div>
+          <div class="col-lg-2 col-sm-4 col-6">
+            <div class="price-wrap lh-sm"> 
+              <var class="price h6 text-dark">${{p.price}}</var>  <br>
+            </div> <!-- price-wrap .// -->
+          </div>
+          <div class="col-lg col-sm-4">
+            <div class="float-lg-end">
+              <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a> 
+              <a href="#" class="btn btn-light text-danger"> Remove</a>
             </div>
           </div>
-          <div class="modal-footer">
-            
-            <button type="button" class="btn btn-secondary" (click)="closeCart()" >Close</button>
-            <button  *ngIf="!previewFlag" type="button" class="btn btn-primary" (click)="preview()" >CheckOut</button>
+        </article> <!-- row.// -->
+  
+      </div> <!-- card-body .// -->
+      </div> <!-- card.// -->
+  
+    </div> <!-- col.// -->
+    <aside class="col-lg-3">
+  
+      <div class="card mb-3">
+      <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label class="form-label">Have coupon?</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="" placeholder="Coupon code">
+            <button class="btn btn-light">Apply</button>
           </div>
         </div>
-      </div>
-    </div>
-    </div> -->
+      </form>
+      </div> <!-- card-body.// -->
+      </div> <!-- card.// -->
+  
+      <div class="card">
+      <div class="card-body">
+        <dl class="dlist-align">
+          <dt>Total price:</dt>
+          <dd class="text-end"> ${{cartTotal}}</dd>
+        </dl>
+        <div class="d-grid gap-2 my-3">
+          <a href="#" class="btn btn-success w-100"> Make Purchase </a>
+          <a href="#" class="btn btn-light w-100"> Back to shop </a>
+        </div>
+      </div> <!-- card-body.// -->
+      </div> <!-- card.// -->
+  
+    </aside> <!-- col.// -->
+  
+  </div> <!-- row.// -->
+  <!-- =================== COMPONENT 1 CART+SUMMARY .//END  ====================== -->
+  
+  <br><br>
+  
+  </div> <!-- container .//  -->
+  </section>
+  

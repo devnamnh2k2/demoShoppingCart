@@ -1,33 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Subject }    from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../interfaces/cart.interface';
-import { Product } from '../interfaces/product.interface';
+import { HttpClient } from '@angular/common/http';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+  cartItems$: Observable<CartItem[]> = this.cartItemsSubject.asObservable();
 
-  
 
-  private cartUpdates = new Subject<string>();
-  public cartUpdates$ = this.cartUpdates.asObservable();
 
-  public cartItmes:CartItem[] =[];
-  public get count():number {
-    return this.cartItmes.reduce((c,t1) => t1.quantity+c,0);
-    
-  };
-  
+  constructor(private http: HttpClient) { }
 
-  constructor() { 
-
+  public getAllPro_CardByCardId(): Observable<CartItem[]> {
+    return this.http.get<CartItem[]>("https://localhost:7282/api/Product_Card_Controllers/id?CardId=1");
   }
-
-  add(product:Product){
-
-
-   //test
-   
-  }
-
 }

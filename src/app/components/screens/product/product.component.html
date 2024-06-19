@@ -1,7 +1,7 @@
 <div class="product-list">
-    <div class="product-content">
+    <div [ngClass]="type === 'VIEW-5'? 'product-contentV2': 'product-content'">
         <ng-container *ngFor="let item of productList">
-            <a routerLink="">
+            <a routerLink="/shoppingCartDemo/{{item.productName}}/{{item.productId}}">
                 <app-card [isShowContent]="true">
                     <ng-container class="productName">
                         <div class="product__info">
@@ -16,7 +16,7 @@
                         </div>
                     </ng-container>
                 </app-card>
-                </a>
+            </a>
         </ng-container>
     </div>
 </div>

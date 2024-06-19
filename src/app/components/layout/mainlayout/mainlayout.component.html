@@ -38,26 +38,28 @@
                         <i class="fa-solid fa-bars"></i>
                     </div>
                     <div class="logo">
+                       <a routerLink="/">
                         <img src="Logo.png" alt="logo">
+                       </a>
                     </div>
                     <div class="mega-icon">
-                        <div class="item-icon">
+                        <a class="item-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <div class="item-icon">
+                        </a>
+                        <a class="item-icon">
                             <i class="fa-solid fa-user-astronaut"></i>
-                        </div>
-                        <div class="item-icon">
+                        </a>
+                        <a class="item-icon">
                             <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <div class="item-icon">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
+                        </a>
+                        <a class="item-icon" routerLink="/shoppingCartDemo/cart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
                     </div>
                 </div>
             </header>
             <main>
-                <div class="header__main" *ngIf="isShowFilter">
+                <div class="header__main" *ngIf="isShowFilter && isShowBanner" >
                     <div class="header__main__breadcrumb">
                         <p>Home <span> -> </span><span>Shop</span></p>
                     </div>
@@ -73,8 +75,10 @@
                                     class="fa-solid fa-filter"></i> <span>Filter</span></button>
                         </div>
                         <div class="header__main_item_view">
-                            <button type="button" aria-label="view-3"><i class="fa-solid fa-table-cells"></i></button>
-                            <button type="button" aria-label="view-2"><i class="fa-solid fa-border-all"></i></button>
+                            <!-- view 5 card / 1 row -->
+                            <button type="button" aria-label="view-5" (click)="onSelectView('VIEW-5')"><i class="fa-solid fa-table-cells"></i></button>
+                            <!-- view 3 card / 1 rơư  -->
+                            <button type="button" aria-label="view-3" (click)="onSelectView('VIEW-3')"><i class="fa-solid fa-border-all"></i></button>
                         </div>
                     </div>
                 </div>

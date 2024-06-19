@@ -16,6 +16,7 @@ import { BreadcrumbComponent } from './components/common/breadcrumb/breadcrumb.c
 import { CardComponent } from './components/common/card/card.component';
 import { FormElementComponent } from './components/common/form-element/form-element.component';
 import { provideHttpClient } from '@angular/common/http';
+import { CategoryComponent } from './components/screens/category/category.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { provideHttpClient } from '@angular/common/http';
     SideBarComponent,
     BreadcrumbComponent,
     CardComponent,
-    FormElementComponent
+    FormElementComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
